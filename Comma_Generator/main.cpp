@@ -13,14 +13,15 @@ double cent_calc(double ratio);
 bool compare (Ratio a, Ratio b);
 
 int main(int argc, const char * argv[]) {
-  double num_ratio{1.5};
-  double den_ratio{2.0};
+  const double NUM_RATIO{1.5};
+  const double DEN_RATIO{2.0};
+  const int EXPONENT_LIMIT{100};
   
   std::vector<Ratio> ratio_array;
   
-  for (int i{2}; i<55; i++){
-    for (int q{2}; q<55; q++){
-      Ratio current_ratio { i, q, cent_calc(pow(num_ratio, i) / pow(den_ratio, q))};
+  for (int i{2}; i<EXPONENT_LIMIT; i++){
+    for (int q{2}; q<EXPONENT_LIMIT; q++){
+      Ratio current_ratio { i, q, cent_calc(pow(NUM_RATIO, i) / pow(DEN_RATIO, q))};
       ratio_array.push_back(current_ratio);
     }
   }
